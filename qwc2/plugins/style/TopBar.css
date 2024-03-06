@@ -1,0 +1,67 @@
+#TopBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 3.5em;
+    color: var(--panel-text-color);
+    background-color: var(--panel-bg-color);
+    box-shadow: 0px 2px 4px rgba(136, 136, 136, 0.5);
+    z-index: 102;
+    display: flex;
+    align-items: center;
+}
+
+#TopBar:not(.fullscreen) {
+    backdrop-filter: blur(3px);
+}
+
+#TopBar img.logo {
+    width: auto;
+    height: 3.0em;
+    flex: 0 0 auto;
+    vertical-align: middle;
+}
+
+#TopBar div.center-span {
+    margin: 0 1em;
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+}
+
+#TopBar div.AppMenu {
+    height: 3.5em;
+    flex: 0 0 auto;
+}
+
+#TopBar #FullScreenSwitcher {
+    height: 3.5em;
+    flex: 0 0 auto;
+}
+
+#TopBar.fullscreen {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#TopBar.fullscreen img.logo,
+#TopBar.fullscreen div.AppMenu .appmenu-label {
+    display: none;
+}
+
+#TopBar div.AppMenu .appmenu-button {
+    width: 20em;
+    display: inline-block;
+}
+
+#TopBar div.AppMenu.appmenu-compact .appmenu-button,
+#TopBar.mobile div.AppMenu .appmenu-button,
+#TopBar.fullscreen div.AppMenu .appmenu-button {
+    width: auto;
+}
+
+#TopBar.mobile div.AppMenu .appmenu-button {
+    margin-right: 0;
+}
+

@@ -1,0 +1,99 @@
+#BackgroundSwitcher {
+    position: absolute;
+    right: 5em;
+    bottom: 3.5em;
+    z-index: 3;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.1s;
+    text-align: right;
+}
+
+#BackgroundSwitcher.bgswitcher-active {
+    transform: scaleX(1);
+}
+
+#BackgroundSwitcher div.background-switcher-item {
+    background-color: var(--list-bg-color);
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    margin: 0.5em;
+    width: 8em;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+#BackgroundSwitcher div.background-switcher-item:hover {
+    border: 1px solid var(--color-active);
+}
+
+#BackgroundSwitcher div.background-switcher-item:hover div.background-group-menu {
+    display: block;
+}
+
+#BackgroundSwitcher div.background-switcher-item-active {
+    border: 1px solid var(--color-active);
+}
+
+#BackgroundSwitcher div.background-switcher-item-active div.background-layer-title {
+    color: var(--color-active);
+}
+
+#BackgroundSwitcher div.background-layer-thumbnail {
+    height: 4em;
+}
+
+#BackgroundSwitcher div.background-layer-thumbnail > img {
+    width: 100%;
+    height: 100%;
+}
+
+#BackgroundSwitcher div.background-layer-title > span:first-child,
+#BackgroundSwitcher div.background-group-menu > div {
+    font-weight: bold;
+    font-size: 80%;
+    text-align: center;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.25em;
+}
+
+#BackgroundSwitcher div.background-layer-title {
+    display: flex;
+    align-items: center;
+}
+
+#BackgroundSwitcher div.background-layer-title span:first-child {
+    flex: 1 1 auto;
+}
+
+#BackgroundSwitcher div.background-layer-title span.icon {
+    flex: 0 0 auto;
+}
+
+#BackgroundSwitcher div.background-group-menu {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 1px);
+    width: 100%;
+    background-color: var(--list-bg-color);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    clip-path: inset(-8px -8px 0 -8px);
+}
+
+#BackgroundSwitcher div.background-group-menu-item:hover {
+    background-color: var(--list-item-bg-color-hover);
+    color: var(--list-item-text-color-hover);
+}
+
+#BackgroundSwitcher div.background-group-menu-item-active {
+    background-color: var(--list-item-bg-color-active);
+    color: var(--list-item-text-color-active);
+}
+
+#BackgroundSwitcher div.background-group-menu-item-active:hover {
+    background-color: var(--list-item-bg-color-active-hover);
+    color: var(--list-item-text-color-active-hover);
+}

@@ -1,0 +1,17 @@
+#MapCopyright {
+    position: absolute;
+    background-color: var(--panel-bg-color);
+    color: var(--panel-text-color);
+    box-shadow: 0 0 4px rgba(136, 136, 136, 0.5);
+    backdrop-filter: blur(3px);
+    padding: 0.5em 0;
+    font-size: x-small;
+}
+
+#MapCopyright > span {
+    padding: 0 0.5em;
+}
+
+#MapCopyright span:not(:first-child) {
+    border-left: 1px solid var(--panel-text-color);
+}

@@ -1,0 +1,39 @@
+#Editing div.editing-body {
+    padding: 0.25em;
+    position: relative;
+    max-height: calc(100vh - 8.25em); /* viewport - topbar - bottombar - sidebar_titlebar*/
+    max-height: calc(var(--vh, 1vh) * 100 - 8.25em); /* viewport - topbar - bottombar - sidebar_titlebar*/
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#Editing .editing-minimize-maximize {
+    margin-left: 1em;
+    cursor: pointer;
+    padding: 0.25em;
+}
+
+#Editing div.editing-body > div.editing-layer-selection,
+#Editing div.editing-body > div.editing-feature-selection,
+#Editing div.editing-body > div.ButtonBar {
+    flex: 0 0 auto;
+}
+
+#Editing div.editing-body > div.AttributeForm {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px solid var(--border-color);
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+#Editing select.editing-layer-select,
+#Editing select.editing-feature-select {
+    width: 100%;
+}
+
+#Editing select.editing-layer-select:disabled,
+#Editing select.editing-feature-select:disabled {
+    cursor: not-allowed;
+}

@@ -1,0 +1,49 @@
+#BottomBar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3em;
+    z-index: 100;
+    color: var(--panel-text-color);
+    background-color: var(--panel-bg-color);
+    box-shadow: 0 -2px 4px rgba(136, 136, 136, 0.5);
+    backdrop-filter: blur(3px);
+    font-size: 75%;
+    display: flex;
+    align-items: center;
+    padding-left: 125px;
+}
+
+#BottomBar > span {
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+
+#BottomBar input.bottombar-mousepos {
+    width: 20ch;
+    text-align: center;
+    margin-right: -1px;
+}
+
+#BottomBar div.bottombar-scale-combo {
+    position: relative;
+    width: 10em;
+}
+
+#BottomBar span.bottombar-scale-combo-prefix {
+    text-align: right;
+    width: 2em;
+}
+#BottomBar div.bottombar-scale-combo > input {
+    position: absolute;
+    top: 0;
+    left: 2em;
+    width: 6em;
+}
+
+#BottomBar span.bottombar-spacer {
+    flex: 1 1 auto;
+}
