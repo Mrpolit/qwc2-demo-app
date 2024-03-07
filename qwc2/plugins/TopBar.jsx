@@ -118,7 +118,7 @@ class TopBar extends React.Component {
                     <Icon className="appmenu-icon" icon="menu-hamburger" title={tooltip}/>
                 </span>
             );
-            logo = assetsPath + "/img/logo."  + this.props.logoFormat;
+            logo = assetsPath + "/img/app_icon.png";
         }
 
         const classes = classnames({
