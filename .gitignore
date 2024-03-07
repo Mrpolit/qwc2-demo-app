@@ -1,8 +1,6 @@
 node_modules/
-dist/
 icons/build
 npm-debug.log
-themes.json
 static/assets/img/genmapthumbs/*
 static/assets/forms/autogen/*
 yarn-error.log
