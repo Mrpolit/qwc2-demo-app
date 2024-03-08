@@ -39,7 +39,7 @@ class Portal extends React.Component {
         currentTheme: PropTypes.object,
         keepMenuOpen: PropTypes.bool,
         /** Name of a logo image below assets/img. */
-        logo: "app_icon.png",
+        logo: PropTypes.string,
         map: PropTypes.object,
         /** Portal menu items, in the same format as the TopBar menu items. */
         menuItems: PropTypes.array,
@@ -49,7 +49,7 @@ class Portal extends React.Component {
         showMenuOnStartup: PropTypes.bool,
         themes: PropTypes.object,
         /** Portal title text to show in the top bar. */
-        topBarText: "QWC WEB" ,
+        topBarText: PropTypes.string,
         userName: PropTypes.string
     };
     static defaultProps = {
