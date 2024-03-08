@@ -89,8 +89,8 @@ class Portal extends React.Component {
         return (
             <div className="Portal">
                 <div className="portal-topbar">
-                    <img className="portal-logo" src={assetsPath + "/img/" + this.props.logo} />
-                    <span className="portal-topbar-text" dangerouslySetInnerHTML={{__html: this.props.topBarText}} />
+                    <img className="portal-logo" src={assetsPath + "/img/app_icon.png"} />
+                    <span className="portal-topbar-text" dangerouslySetInnerHTML={{__html: "QGIS WEB"}} />
                     <input
                         className="portal-search-field"
                         onChange={ev => this.setState({filter: ev.target.value})}
@@ -113,12 +113,6 @@ class Portal extends React.Component {
                         </div>
                     ) : null}
                     <div className="portal-bottombar-links">
-                        {(this.props.bottomBarLinks || []).map((link, idx) => {
-                            const label = link.labelmsgid ? LocaleUtils.tr(link.labelmsgid) : link.label;
-                            return (
-                                <a href="#" key={"l" + idx} onClick={() => this.openUrl(link.href, link.target, {title: label})}>{label}</a>
-                            );
-                        })}
                     </div>
                 </div>
             </div>

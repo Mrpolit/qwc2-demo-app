@@ -125,7 +125,7 @@ class TopBar extends React.Component {
             mobile: this.props.mobile,
             fullscreen: this.props.fullscreen
         });
-        let logoEl = (<img className="logo" src={this.props.logoSrc || logo} />);
+        let logoEl = (<img className="logo" src={assetsPath + "/img/app_icon.png"} />);
         if (this.props.logoUrl) {
             logoEl = (<a href={this.props.logoUrl} rel="noreferrer" target="_blank">{logoEl}</a>);
         }

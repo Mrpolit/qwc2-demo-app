@@ -65,7 +65,7 @@
             },
             {
                 "title": "QGIS World Map",
-                "url": "http://162.19.255.82/cgi-bin/qgis_mapserv.fcgi",
+                "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi",
                 "default": true,
                 "scales": [50000000, 25000000.0, 12500000.0, 6250000.0, 3125000.0, 1562500.0,
                            781250.0, 390625.0, 195312.5, 97656.25, 48828.125],
