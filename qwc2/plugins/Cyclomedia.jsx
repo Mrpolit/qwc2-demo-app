@@ -312,7 +312,7 @@ class Cyclomedia extends React.Component {
         }
     };
     cyclomediaIndexHtml = () => {
-        const supportedLang = ["de", "en-GB", "en-US", "fi", "fr", "nl", "tr", "pl"];
+        const supportedLang = ["de", "en-GB", "en-US","fa", "fi", "fr", "nl", "tr", "pl"];
         let lang = LocaleUtils.lang();
         if (supportedLang.indexOf(lang) < 0) {
             lang = lang.slice(0, 2);

@@ -4,214 +4,9 @@
     "subdirs": [],
     "items": [
       {
-        "url": "http://qwc2.sourcepole.ch/ows/uster/bauprojekte",
-        "id": "bauprojekte",
-        "name": "Liegenschaftsprojekte Stadt Uster",
-        "title": "Liegenschaftsprojekte Stadt Uster",
-        "description": "",
-        "attribution": {
-          "Title": "Stadt Uster",
-          "OnlineResource": "https://gis.uster.ch/"
-        },
-        "abstract": "Bauprojekte auf städtischen Liegenschaften, wie z.b. Schulgebäude, Sportanlagen, städtische Büros oder Werkhof.\n\nZu den Projekten existieren verschiedene Projektstati: Planung, Beratung, Realisierung.",
-        "keywords": "Bauprojekte, Hochbauprojekte, Stadt Uster",
-        "onlineResource": "http://qwc2.sourcepole.ch/ows/uster/bauprojekte",
-        "contact": {
-          "person": "Diana Isler-Bader",
-          "organization": "Stadt Uster, Liegenschaften",
-          "position": "",
-          "phone": "044 944 74 53",
-          "email": "diana(punkt)isler(at)uster(punkt)ch"
-        },
-        "availableFormats": [
-          "image/jpeg",
-          "image/png",
-          "image/png; mode=16bit",
-          "image/png; mode=8bit",
-          "image/png; mode=1bit",
-          "application/dxf"
-        ],
-        "version": "1.3.0",
-        "infoFormats": [
-          "text/plain",
-          "text/html",
-          "text/xml",
-          "application/vnd.ogc.gml",
-          "application/json",
-          "application/geo+json"
-        ],
-        "bbox": {
-          "crs": "EPSG:4326",
-          "bounds": [
-            8.660671,
-            47.317825,
-            8.777065,
-            47.385902
-          ]
-        },
-        "initialBbox": {
-          "crs": "EPSG:4326",
-          "bounds": [
-            8.660671,
-            47.317825,
-            8.777065,
-            47.385902
-          ]
-        },
-        "scales": [
-          80000,
-          40000,
-          20000,
-          10000,
-          8000,
-          6000,
-          4000,
-          2000,
-          1000,
-          500,
-          250,
-          100
-        ],
-        "printScales": [
-          80000,
-          40000,
-          20000,
-          10000,
-          8000,
-          6000,
-          4000,
-          2000,
-          1000,
-          500,
-          250,
-          100
-        ],
-        "printResolutions": [
-          150,
-          300,
-          600
-        ],
-        "sublayers": [
-          {
-            "name": "TestX",
-            "title": "TestY",
-            "geometryType": "MultiPolygon",
-            "visibility": true,
-            "queryable": true,
-            "displayField": "Name",
-            "abstract": "TestZ",
-            "dataUrl": "www.xyz.org",
-            "opacity": 255,
-            "keywords": "XYZ",
-            "bbox": {
-              "crs": "EPSG:4326",
-              "bounds": [
-                8.690424,
-                47.331132,
-                8.733603,
-                47.375233
-              ]
-            },
-            "dimensions": []
-          },
-          {
-            "name": "Gemeindegrenze",
-            "title": "Gemeindegrenze",
-            "geometryType": "Polygon",
-            "visibility": true,
-            "queryable": true,
-            "displayField": "name",
-            "opacity": 255,
-            "bbox": {
-              "crs": "EPSG:4326",
-              "bounds": [
-                8.676248,
-                47.319596,
-                8.761463,
-                47.384142
-              ]
-            },
-            "dimensions": []
-          }
-        ],
-        "expanded": true,
-        "externalLayers": [],
-        "backgroundLayers": [
-          {
-            "name": "mapnik",
-            "visibility": true
-          },
-          {
-            "name": "opentopomap"
-          }
-        ],
-        "searchProviders": [
-          "coordinates",
-          "uster",
-          {
-            "key": "nominatim",
-            "params": {
-              "countrycodes": "ch"
-            }
-          }
-        ],
-        "additionalMouseCrs": [
-          "EPSG:21781",
-          "EPSG:2056"
-        ],
-        "mapCrs": "EPSG:3857",
-        "print": [
-          {
-            "name": "A4-Hoch",
-            "map": {
-              "name": "map0",
-              "width": 189,
-              "height": 247
-            },
-            "default": false
-          },
-          {
-            "name": "A4-Quer",
-            "map": {
-              "name": "map0",
-              "width": 276,
-              "height": 159.5
-            },
-            "default": false
-          },
-          {
-            "name": "A3-Hoch",
-            "map": {
-              "name": "map0",
-              "width": 276,
-              "height": 369.5
-            },
-            "default": false
-          },
-          {
-            "name": "A3-Quer",
-            "map": {
-              "name": "map0",
-              "width": 399,
-              "height": 246.5
-            },
-            "default": false
-          }
-        ],
-        "drawingOrder": [
-          "Gemeindegrenze",
-          "TestX"
-        ],
-        "legendUrl": "http://qwc2.sourcepole.ch/api/v1/legend/uster/bauprojekte?",
-        "featureInfoUrl": "http://qwc2.sourcepole.ch/api/v1/featureinfo/uster/bauprojekte?",
-        "printUrl": "http://qwc2.sourcepole.ch/ows/uster/bauprojekte?",
-        "editConfig": null,
-        "thumbnail": "img/genmapthumbs/bauprojekte.png"
-      },
-      {
-        "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi",
-        "id": "qgis_mapserv.fcgi",
-        "title": "QGIS World Map",
+        "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/tutorial/world.qgs",
+        "id": "world.qgs",
+        "title": "QGIS tutorial Map",
         "description": "",
         "attribution": {
           "Title": "",
@@ -219,7 +14,7 @@
         },
         "abstract": "This is a simple World map that showcases QGIS Server capabilities.",
         "keywords": "QGIS Server World",
-        "onlineResource": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi",
+        "onlineResource": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Ftutorial%2Fworld.qgs",
         "contact": {
           "person": "Tudor Bărăscu",
           "organization": "qgis.org",
@@ -392,17 +187,17 @@
           "places",
           "airports"
         ],
-        "legendUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?",
-        "featureInfoUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?",
-        "printUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?",
+        "legendUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Ftutorial%2Fworld.qgs&?",
+        "featureInfoUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Ftutorial%2Fworld.qgs&?",
+        "printUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Ftutorial%2Fworld.qgs&?",
         "config": {
           "preserveExtentOnThemeSwitch": false
         },
         "editConfig": null,
-        "thumbnail": "img/genmapthumbs/qgis_mapserv.fcgi.png"
+        "thumbnail": "img/genmapthumbs/world.qgs.png"
       }
     ],
-    "defaultTheme": "qgis_mapserv.fcgi",
+    "defaultTheme": "world.qgs",
     "defaultMapCrs": "EPSG:3857",
     "defaultScales": [
       4000000,
