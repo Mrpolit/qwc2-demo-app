@@ -295,11 +295,6 @@
     "navbar": {
       "perpage": "pe pagină"
     },
-    "newspopup": {
-      "dialogclose": "Închideți",
-      "dontshowagain": "Nu mai afișați acest mesaj",
-      "title": "Noutăți"
-    },
     "numericinput": {
       "angle": "Unghi",
       "featureunsupported": "Valorile numerice nu pot fi introduse pentru acest tip de geometrie",

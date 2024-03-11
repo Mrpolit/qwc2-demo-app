@@ -47,7 +47,6 @@ import MapInfoTooltipPlugin from 'qwc2/plugins/MapInfoTooltip';
 import MapLegendPlugin from 'qwc2/plugins/MapLegend';
 import MapTipPlugin from 'qwc2/plugins/MapTip';
 import MeasurePlugin from 'qwc2/plugins/Measure';
-import NewsPopupPlugin from 'qwc2/plugins/NewsPopup';
 import PortalPlugin from 'qwc2/plugins/Portal';
 import PrintPlugin from 'qwc2/plugins/Print';
 import ProcessNotificationsPlugin from 'qwc2/plugins/ProcessNotifications';
@@ -68,7 +67,7 @@ import TopBarPlugin from 'qwc2/plugins/TopBar';
 import {ZoomInPlugin, ZoomOutPlugin} from 'qwc2/plugins/ZoomButtons';
 import {customAttributeCalculator, attributeTransform, customExporters} from './IdentifyExtensions';
 
-import defaultLocaleData from '../static/translations/en-US.json';
+import defaultLocaleData from '../static/translations/fa-FA.json';
 
 export default {
     defaultLocaleData: defaultLocaleData,
@@ -113,7 +112,6 @@ export default {
             MapLegendPlugin: MapLegendPlugin,
             MapTipPlugin: MapTipPlugin,
             MeasurePlugin: MeasurePlugin,
-            NewsPopupPlugin: NewsPopupPlugin,
             PortalPlugin: PortalPlugin,
             PrintPlugin: PrintPlugin,
             ProcessNotificationsPlugin: ProcessNotificationsPlugin,

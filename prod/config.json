@@ -178,12 +178,12 @@
         "cfg": {
           "languages": [
             {
-              "title": "English",
-              "value": "en-US"
-            },
-            {
               "title": "فارسی",
               "value": "fa-FA"
+            },
+            {
+              "title": "English",
+              "value": "en-US"
             },
             {
               "title": "Deutsch",

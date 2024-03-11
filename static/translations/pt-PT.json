@@ -323,11 +323,6 @@
     "navbar": {
       "perpage": "Por página"
     },
-    "newspopup": {
-      "dialogclose": "Fechar Diálogo",
-      "dontshowagain": "Não Mostrar Novamente",
-      "title": "Pop-up de Notícias"
-    },
     "numericinput": {
       "angle": "Ângulo",
       "featureunsupported": "Recurso Não Suportado",

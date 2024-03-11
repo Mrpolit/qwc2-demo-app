@@ -44,7 +44,7 @@ class HomeButton extends React.Component {
         const right = this.props.mapMargins.right;
         const bottom = this.props.mapMargins.bottom;
         const style = {
-            right: 'calc(1.5em + ' + right + 'px)',
+            right: 'calc(100svw - 4em)',
             bottom: 'calc(' + bottom + 'px + ' + (5 + 4 * this.props.position) + 'em)'
         };
         const tooltip = LocaleUtils.tr("tooltip.home");

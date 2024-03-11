@@ -295,11 +295,6 @@
     "navbar": {
       "perpage": "per page"
     },
-    "newspopup": {
-      "dialogclose": "Close",
-      "dontshowagain": "Don't show again",
-      "title": "News"
-    },
     "numericinput": {
       "angle": "Angle",
       "featureunsupported": "Numeric input unavailable for this geometry",

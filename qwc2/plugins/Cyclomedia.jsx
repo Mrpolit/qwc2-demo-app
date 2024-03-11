@@ -312,12 +312,12 @@ class Cyclomedia extends React.Component {
         }
     };
     cyclomediaIndexHtml = () => {
-        const supportedLang = ["de", "en-GB", "en-US","fa", "fi", "fr", "nl", "tr", "pl"];
+        const supportedLang = ["de", "en-GB", "en-US","fa-FA", "fi", "fr", "nl", "tr", "pl"];
         let lang = LocaleUtils.lang();
         if (supportedLang.indexOf(lang) < 0) {
             lang = lang.slice(0, 2);
             if (supportedLang.indexOf(lang) < 0) {
-                lang = "en-US";
+                lang = "fa-FA";
             }
         }
         const loginOauth = !!this.props.clientId && !this.state.loginFailed;

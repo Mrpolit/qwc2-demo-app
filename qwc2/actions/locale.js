@@ -20,9 +20,9 @@ import {UrlParams} from '../utils/PermaLinkUtils';
 
 export const CHANGE_LOCALE = 'CHANGE_LOCALE';
 
-export function loadLocale(defaultLangData, defaultLang = "") {
+export function loadLocale(defaultLangData, defaultLang = "fa-FA") {
     return dispatch => {
-        let lang = defaultLang || UrlParams.getParam("lang") || (navigator ? (navigator.language || navigator.browserLanguage) : "en-US");
+        let lang = defaultLang || UrlParams.getParam("lang") ||  "fa-FA";
         const config = {
             headers: {'Content-Type': 'application/json'},
             data: {}

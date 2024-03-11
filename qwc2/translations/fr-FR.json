@@ -295,11 +295,6 @@
     "navbar": {
       "perpage": "Par page"
     },
-    "newspopup": {
-      "dialogclose": "Fermer",
-      "dontshowagain": "Ne plus montrer",
-      "title": "Actualités"
-    },
     "numericinput": {
       "angle": "Angle",
       "featureunsupported": "Entrée numérique non disponible pour cette géométrie",
