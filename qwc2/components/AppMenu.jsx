@@ -236,8 +236,8 @@ class AppMenu extends React.Component {
                     return (
                         <li className={className} key={item.key}
                             onClick={() => this.onSubmenuClicked(item.key, level)}
-                            onMouseEnter={() => { if (!this.state.keyNav) { this.setState({curEntry: [...path, idx]}); } } }
-                            onMouseLeave={() => { if (!this.state.keyNav) { this.setState({curEntry: null}); } } }
+                            // onMouseEnter={() => { if (!this.state.keyNav) { this.setState({curEntry: [...path, idx]}); } } }
+                            // onMouseLeave={() => { if (!this.state.keyNav) { this.setState({curEntry: null}); } } }
                             ref={el => { if (active && el && this.state.keyNav) { el.scrollIntoView(false); } }}
                         >
                             <Icon icon={item.icon} size="xlarge"/>
@@ -258,8 +258,8 @@ class AppMenu extends React.Component {
                         return (
                             <li className={className} key={item.key + (item.mode || "")}
                                 onClick={() => this.onMenuitemClicked(item)}
-                                onMouseEnter={() => { if (!this.state.keyNav) { this.setState({curEntry: [...path, idx]}); } } }
-                                onMouseLeave={() => { if (!this.state.keyNav) { this.setState({curEntry: null}); } } }
+                                // onMouseEnter={() => { if (!this.state.keyNav) { this.setState({curEntry: [...path, idx]}); } } }
+                                // onMouseLeave={() => { if (!this.state.keyNav) { this.setState({curEntry: null}); } } }
                                 ref={el => { if (active && el && this.state.keyNav) { el.scrollIntoView(false); } }}
                             >
                                 <Icon icon={item.icon} size="xlarge"/>
@@ -285,9 +285,32 @@ class AppMenu extends React.Component {
             "appmenu-compact": this.props.menuCompact
         });
         const filter = removeDiacritics(this.state.filter.toLowerCase());
+        const tabOpen  = (tableName) => {
+            let tab = document.querySelectorAll('.tablinks');
+            let content = document.querySelectorAll('.tabcontent');
+            content.forEach(element => {
+                let Id = element.id.toString()
+                if(Id == tableName){
+                    element.classList.add("tabcontent-active")
+                }else{
+                    element.classList.remove("tabcontent-active")
+                }
+            });
+            tab.forEach(element => {
+                let name = element.innerHTML.toString()
+                if(name == tableName){
+                    element.classList.add("active")
+                }else{
+                    element.classList.remove("active")
+                }
+            });
+        } 
+        tabOpen("Toolbar");
         return (
             <div className={"AppMenu " + className} ref={el => { this.menuEl = el; MiscUtils.setupKillTouchEvents(el); }}
             >
+                
+
                 <div className="appmenu-button-container" onMouseDown={this.toggleMenu} >
                     {this.props.buttonContents}
                 </div>
@@ -306,7 +329,25 @@ class AppMenu extends React.Component {
                                 </InputContainer>
                             </li>
                         ) : null}
-                        {this.renderMenuItems(this.props.menuItems, 0, filter, [])}
+                        <div className="tab">
+                            <button className="tablinks" onClick={() => {tabOpen("Toolbar")}}>Toolbar</button>
+                            <button className="tablinks" onClick={() => {tabOpen("Paris")}}>Paris</button>
+                            <button className="tablinks" onClick={() => {tabOpen("Tokyo")}}>Tokyo</button>
+                        </div>
+
+                        <div id="Toolbar" className="tabcontent">
+                            {this.renderMenuItems(this.props.menuItems, 0, filter, [])}
+                        </div>
+
+                        <div id="Paris" className="tabcontent">
+                            <h3>Paris</h3>
+                            <p>Paris is the capital of France.</p>
+                        </div>
+
+                        <div id="Tokyo" className="tabcontent">
+                            <h3>Tokyo</h3>
+                            <p>Tokyo is the capital of Japan.</p>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -342,3 +383,5 @@ export default connect((state) => ({
     setCurrentTask: setCurrentTask,
     setMenuMargin: setMenuMargin
 })(AppMenu);
+
+

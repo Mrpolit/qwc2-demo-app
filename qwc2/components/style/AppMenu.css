@@ -136,8 +136,13 @@ div.AppMenu ul.appmenu-menu li.appmenu-submenu > ul > li.appmenu-submenu-expande
 div.AppMenu ul.appmenu-menu li.appmenu-leaf {
     display: flex;
     align-items: center;
+}
+
+div.AppMenu ul.appmenu-menu li.appmenu-leaf:hover , .appmenu-submenu:hover {
+    background-color: var(--app-menu-bg-color-hover);
     cursor: pointer;
 }
+
 
 div.AppMenu ul.appmenu-menu li.appmenu-leaf > span.icon {
     flex: 0 0 auto;
@@ -157,3 +162,46 @@ div.appmenu-filter {
     width: 100%;
     margin-right: 0.5em;
 }
+
+ /* Style the tab */
+ .tab {
+    overflow: hidden;
+    background-color: var(--app-menu-bg-color);
+    color: var(--app-menu-text-color);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid var(--app-menu-text-color);
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: var(--app-menu-bg-color-hover);
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    color: var(--app-menu-text-color);
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+  } 
+  .tabcontent-active {
+    display: block;
+  } 

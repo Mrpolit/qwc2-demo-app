@@ -6,14 +6,14 @@
         "ExternalLink": "External Link",
         "MapFilter": "فیلتر نقشه",
         "AttributeTable": "Attribute Table",
-        "Cyclomedia": "Cyclomedia",
+        "Cyclomedia": "لغت نامه",
         "DxfExport": "DXF Export",
         "Editing": "ویرایش",
-        "FeatureForm": "Feature Form",
-        "FeatureSearch": "Feature Search",
+        "FeatureForm": "برگه قابلیت ها",
+        "FeatureSearch": "جستجوی قابلیت",
         "Help": "راهنما",
-        "IdentifyPoint": "Identify Point",
-        "IdentifyRegion": "Identify Region",
+        "IdentifyPoint": "تعریف نقطه",
+        "IdentifyRegion": "تعریف محدوده",
         "LayerCatalog": "کاتالوگ لایه",
         "LayerTree": "لایه ها و راهنمای نقشه",
         "Login": "ورود",
@@ -27,7 +27,7 @@
         "RasterExport": "Raster Export",
         "MapExport": "خروجی گرفتن نقشه",
         "Redlining": "Redlining",
-        "Routing": "Routing",
+        "Routing": "اتصال",
         "Share": "لینک به اشتراک گذاری",
         "ThemeSwitcher": "انتخاب نقشه",
         "Tools": "تنظیمات نقشه",
@@ -35,7 +35,7 @@
         "TimeManager": "مدیریت زمان",
         "Settings": "تنظیمات"
       },
-      "filter": "Filter menu...",
+      "filter": "منوی فیلتر ها ...",
       "menulabel": "تنظیمات"
     },
     "search": {
@@ -52,13 +52,13 @@
       "none": "None",
       "noresults": "No results",
       "providerselection": "Search providers",
-      "search": "Search",
+      "search": "جستجو",
       "searchall": "جستجوی مکان و یا اضافه نمودن نقشه ...",
-      "searchinprogress": "Search in progress",
+      "searchinprogress": "در حال جستجو",
       "searchreset": "Reset search",
       "solr": "Fulltext search",
-      "themelayers": "Theme layers",
-      "themes": "Themes"
+      "themelayers": "لایه های نقشه",
+      "themes": "نقشه ها"
     },
     "colorschemes": {
       "default": "Default",
@@ -66,43 +66,43 @@
       "highcontrast": "High contrast"
     },
     "app": {
-      "missingbg": "Unable to find the background \"{0}\", displaying the default background.",
+      "missingbg": " پیش زمینه یافت نشد \"{0}\", در حال نمایش پیش زمینه پیش فرض",
       "missinglayers": "لایه های تعریف شده یافت نشد: {0}.",
       "missingpermalink": "The specified permalink or bookmark is invalid or expired.",
       "missingprojection": "Unable to load the theme \"{0}\": the projection {1} is not defined.",
-      "missingtheme": "Unable to find the theme \"{0}\", loading the default theme."
+      "missingtheme": "نقشه یافت نشد \"{0}\", در حال نمایش نقشه پیش فرض"
     },
     "attribtable": {
-      "addfeature": "Add feature",
+      "addfeature": "اضافه نمودن قابلیت",
       "commit": "Commit changed row",
       "csvexport": "CSV export",
-      "delete": "Delete",
-      "deletefailed": "One or more features could not be deleted",
-      "deletefeatures": "Delete selected features",
-      "deleting": "Deleting features...",
-      "discard": "Discard changed row",
+      "delete": "حذف",
+      "deletefailed": "یک یا چند نمونه از قابلیت ها قابل پاک سازی نمی باشند",
+      "deletefeatures": "حذف قابلیت های انتخابی",
+      "deleting": "حذف قابلیت ها .....",
+      "discard": "باز گردانی سطر تغییر یافته",
       "formeditmode": "Open the edit form for the selected feature",
       "geomnoadd": "Please use the edit form for adding new features to this layer",
-      "layer": "Layer",
+      "layer": "لایه",
       "limittoextent": "Limit to map extent",
       "loadfailed": "Failed to load the feature data",
-      "loading": "Loading...",
-      "nodelete": "Don't delete",
+      "loading": "درحال خواندن ....",
+      "nodelete": "حذف نشود",
       "nogeomnoform": "The edit form is not available for geometryless layers",
       "pleasereload": "Press 'Reload' to load the attribute table...",
       "reload": "Reload",
-      "selectlayer": "Select layer...",
+      "selectlayer": "انتخاب لایه .....",
       "title": "Attribute Table",
       "zoomtoselection": "Zoom to selected features"
     },
     "bgswitcher": {
-      "nobg": "No background"
+      "nobg": "پیش زمینه ای یافت نشد"
     },
     "bookmark": {
-      "add": "Create new bookmark",
-      "addfailed": "Failed to create bookmark",
+      "add": "شاخت نشان جدید",
+      "addfailed": "ساخت نشان با خطا مواجه شد",
       "description": "Enter description...",
-      "lastUpdate": "Last saved",
+      "lastUpdate": "آخرین ذخیره شده",
       "manage": "Manage bookmarks",
       "nobookmarks": "No bookmarks",
       "notloggedin": "You need to be logged in to store bookmarks",
@@ -121,9 +121,9 @@
       "viewertitle_label": "QWC2 Demo"
     },
     "copybtn": {
-      "click_to_copy": "Click to copy",
-      "copied": "Copied",
-      "copyfailed": "Copy failed"
+      "click_to_copy": "برای کپی کردن کلیک کنید",
+      "copied": "کپی شد",
+      "copyfailed": "عملیات کپی با خطا مواجه شد"
     },
     "cyclomedia": {
       "clickonmap": "Click on a recording on the map",
@@ -140,17 +140,17 @@
       "symbologyscale": "Symbology scale"
     },
     "editing": {
-      "add": "Add",
+      "add": "اضافه کردن",
       "attrtable": "Table",
-      "canceldelete": "Don't delete",
-      "clearpicture": "Clear",
+      "canceldelete": "حذف نشود",
+      "clearpicture": "پاک کردن",
       "commit": "Commit",
       "commitfailed": "Commit failed",
-      "create": "Create",
-      "delete": "Delete",
-      "discard": "Discard",
-      "draw": "Draw",
-      "feature": "Feature",
+      "create": "ساختن",
+      "delete": "حذف کردن",
+      "discard": "بازگردانی",
+      "draw": "کشیدن",
+      "feature": "قابلیت",
       "geomreadonly": "The geometry contains non-zero Z values and is therefore read only.",
       "invalidform": "Invalid form",
       "maximize": "Maximize",
@@ -179,16 +179,16 @@
       "title": "Feature search"
     },
     "fileselector": {
-      "files": "files",
-      "placeholder": "Select file..."
+      "files": "فایل ها",
+      "placeholder": "انتخاب فایل ..."
     },
     "heightprofile": {
       "asl": "a.s.l.",
-      "distance": "Distance",
+      "distance": "مسافت",
       "drawnodes": "Draw nodes",
       "error": "Failed to compute height profile",
       "export": "Export profile",
-      "height": "Height",
+      "height": "طول",
       "loading": "Calculating height profile...",
       "loadingimage": "Loading map image...",
       "print": "Print height profile",
@@ -196,7 +196,7 @@
     },
     "identify": {
       "clipboard": "Copy to clipboard",
-      "export": "Export",
+      "export": "خروجی",
       "exportformat": "Export format:",
       "featureReport": "Feature report",
       "link": "Link",
@@ -328,43 +328,43 @@
       "featureunsupported": "Numeric input unavailable for this geometry",
       "height": "Height",
       "nofeature": "No active feature",
-      "side": "Side",
-      "width": "Width",
+      "side": "گوشه",
+      "width": "عرض",
       "windowtitle": "Numeric input"
     },
     "portal": {
       "filter": "Filter themes...",
-      "menulabel": "Menu"
+      "menulabel": "منو"
     },
     "print": {
       "atlasfeature": "Atlas feature",
-      "format": "Format",
+      "format": "فرمت",
       "grid": "Grid",
       "layout": "Layout",
-      "legend": "Legend",
+      "legend": "راهنما",
       "maximize": "Maximize",
       "minimize": "Minimize",
-      "nolayouts": "The selected theme does not support printing",
-      "notheme": "No theme selected",
-      "output": "Print output",
-      "pickatlasfeature": "Pick in layer {0}...",
-      "resolution": "Resolution",
-      "rotation": "Rotation",
+      "nolayouts": "نقشه انتخاب شده قابلیت چاپ ندارد",
+      "notheme": "هیچ نقشه ای انتخاب نشده",
+      "output": "خروجی چاپ",
+      "pickatlasfeature": "انتخاب از لایه {0}...",
+      "resolution": "وضوح",
+      "rotation": "چرخاندن",
       "scale": "Scale",
-      "submit": "Print",
-      "wait": "Please wait..."
+      "submit": "چاپ/پرینت",
+      "wait": "لطفا صبر کنید...."
     },
     "qtdesignerform": {
-      "loading": "Loading form..."
+      "loading": "در حال خواندن فرم..."
     },
     "rasterexport": {
-      "format": "Format",
-      "resolution": "Resolution",
+      "format": "فرمت",
+      "resolution": "وضوح",
       "scale": "Scale",
-      "size": "Size",
-      "submit": "Export",
-      "usersize": "Select on map...",
-      "wait": "Please wait..."
+      "size": "سایز",
+      "submit": "خروجی",
+      "usersize": "انتخاب از روی نقشه ...",
+      "wait": "لطفا صبر کنید...."
     },
     "redlining": {
       "border": "Border",
@@ -441,13 +441,13 @@
     },
     "searchbox": {
       "filter": "Refine search",
-      "layers": "Maps",
-      "more": "more results",
-      "morelayers": "More results available",
-      "nodescription": "No description available",
-      "placeholder": "Search place or add map...",
-      "places": "Places",
-      "recent": "Recent searches"
+      "layers": "نقشه ها",
+      "more": "نتایج بیشتر",
+      "morelayers": "نتایج بیشتری موجود است",
+      "nodescription": "هیچ توضیحاتی موجود نیست",
+      "placeholder": "جستجوی مکان ها و یا نقشه ها ...",
+      "places": "مکان ها",
+      "recent": "جستجو های اخیر"
     },
     "serviceinfo": {
       "abstract": "Abstract",
@@ -461,15 +461,15 @@
       "title": "Theme Information"
     },
     "settings": {
-      "bookmarks": "Bookmarks",
+      "bookmarks": "نشان ها",
       "colorscheme": "Color scheme",
-      "confirmlang": "The application will be reloaded to change the language. Proceed?",
-      "default": "Default",
-      "defaulttheme": "Default theme",
-      "defaultthemefailed": "Failed to set the default theme: {0}",
-      "language": "Language",
+      "confirmlang": "اپلیکیشن ری استارت می شود تا زبان انتخابی را اعمال کند. ادامه می دهید؟",
+      "default": "پیش فرض",
+      "defaulttheme": "نقشه پیش فرض",
+      "defaultthemefailed": "تنظیم نقشه پیش فرض با خطا مواجه شد: {0}",
+      "language": "زبان",
       "systemlang": "System language",
-      "themes": "Themes"
+      "themes": "نقشه ها"
     },
     "share": {
       "QRCodeLinkTitle": "QR Code",
@@ -487,23 +487,23 @@
       "vertex": "Snap to vertices"
     },
     "themelayerslist": {
-      "addlayer": "Add layer",
-      "addlayerstotheme": "Add layers to current map",
-      "addselectedlayers": "Add selected layer(s)"
+      "addlayer": "اضافه نمودن لایه",
+      "addlayerstotheme": "اضافه نمودن لایه ها به نقشه موجود",
+      "addselectedlayers": "اضافه نمودن لایه(های) انتخاب شده"
     },
     "themeswitcher": {
-      "addlayerstotheme": "Add layers to current map",
-      "addtotheme": "Add to current theme",
-      "changedefaulttheme": "Select this theme as default theme",
+      "addlayerstotheme": "اضافه نمودن لایه به نقشه موجود",
+      "addtotheme": "اضافه نمودن به نقشه موجود",
+      "changedefaulttheme": "انتخاب این نقشه به عنوان نقشه پیش فرض",
       "confirmswitch": "Non-theme layers will be lost when switching theme. Proceed?",
-      "filter": "Filter...",
+      "filter": "فیلتر ....",
       "match": {
         "abstract": "Abstract",
         "keywords": "Keywords",
         "title": "Title"
       },
-      "openintab": "Open in Tab",
-      "restrictedthemeinfo": "You are not permitted to view the theme or not logged in"
+      "openintab": "باز کردن در صفحه",
+      "restrictedthemeinfo": "شما دستری لازم برای نمایش نقشه را ندارید و یا وارد حساب کاربری نشده اید"
     },
     "timemanager": {
       "animationinterval": "Animation interval",
@@ -533,7 +533,7 @@
       "stepfwd": "Step forward",
       "stepsize": "Step size",
       "stop": "Stop",
-      "timeline": "Timeline",
+      "timeline": "خط زمانی",
       "timeline_fixed": "Fixed",
       "timeline_infinite": "Infinite",
       "timelinedisplay": "Display",
@@ -541,38 +541,38 @@
       "title": "Time manager",
       "toggle": "Temporal navigation",
       "unit": {
-        "century": "centuries",
-        "days": "days",
-        "decade": "decades",
-        "hours": "hours",
-        "milliseconds": "milliseconds",
-        "minutes": "minutes",
-        "months": "months",
-        "seconds": "seconds",
-        "years": "years"
+        "century": "قرن ها",
+        "days": "روز ها",
+        "decade": "دهه ها",
+        "hours": "ساعت ها",
+        "milliseconds": "میلی ثانیه ها",
+        "minutes": "دقیقه ها",
+        "months": "ماه ها",
+        "seconds": "ثانیه ها",
+        "years": "سال ها"
       },
       "zoomin": "Zoom in",
       "zoomout": "Zoom out"
     },
     "tooltip": {
       "background": "Switch background",
-      "fullscreendisable": "Disable full screen mode",
-      "fullscreenenable": "Enable full screen mode",
-      "home": "Show entire map",
-      "zoomin": "Zoom in",
-      "zoomout": "Zoom out"
+      "fullscreendisable": "غیر فعال سازی حالت تمام صفحه",
+      "fullscreenenable": "فعال سازی حالت تمام صفحه",
+      "home": "نمایش تمام نقشه",
+      "zoomin": "بزرگنمایی",
+      "zoomout": "کوچک نمایی"
     },
     "vectorlayerpicker": {
       "none": "None",
-      "prompt": "Enter layer name"
+      "prompt": "نام لایه را وارد کنید"
     },
     "window": {
-      "close": "Close",
+      "close": "بستن",
       "dock": "Dock",
       "maximize": "Maximize",
       "minimize": "Minimize",
       "undock": "Undock",
-      "unmaximize": "Restore",
+      "unmaximize": "بازیابی",
       "unminimize": "Unminimize"
     }
   }
