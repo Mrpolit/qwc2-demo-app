@@ -98,44 +98,48 @@ function drawbox(ev) {
 }
 
 function toggleapidemo(ev) {
-    let apidemo = document.getElementById("apidemo");
-    apidemo.style.display = apidemo.style.display ? "" : "none";
+    // let apidemo = document.getElementById("apidemo");
+    // apidemo.style.display = apidemo.style.display ? "" : "none";
+    let navigation = document.querySelector(".navigation");
+    navigation.classList.toggle("active");
 }
 
 window.onload = function() {
     let apiFrame = document.createElement("div");
-    apiFrame.style.position = 'fixed';
-    apiFrame.style.left = 0;
-    apiFrame.style.top = '4em';
-    apiFrame.style.zIndex = 1000;
-    apiFrame.style.padding = '0.5em';
-    apiFrame.style.backgroundColor = 'rgba(255, 255, 0, 0.75)';
+    apiFrame.className = "navigation"
 
-    apiFrame.innerHTML = "\
-        <div><a href='#' onclick='toggleapidemo(event)'>Toggle API demo</a></div>\
-        <div id='apidemo' style='display: none; padding: 0.25em;'>\
-        <div><b>Note: These examples work with the <i>QWC2 Test 2056</i> theme</b></div>\
-        <div><i>You can remove this box by removing api_examples.js from index.html.</i></div>\
-        <div>\
-            <button onclick='addmarker(event)'>Add marker</button>\
-            <button onclick='addpoly(event)'>Add poly</button>\
-        </div>\
-        <div>\
-            <button onclick='removemarker(event)'>Remove marker</button>\
-            <button onclick='removepoly(event)'>Remove poly</button>\
-            <button onclick='removeall(event)'>Remove all</button>\
-        </div>\
-        <div>\
-            <button onclick='pantohb(event)'>Pan to HB</button>\
-            <button onclick='zoomtohb(event)'>Zoom to HB</button>\
-        </div>\
-        <div>\
-            <button onclick='drawpoint(event)'>Draw point</button>\
-            <button onclick='drawline(event)'>Draw line</button>\
-            <button onclick='drawpoly(event)'>Draw poly</button>\
-            <button onclick='drawcircle(event)'>Draw circle</button>\
-            <button onclick='drawbox(event)'>Draw box</button>\
-        </div>\
-        </div>";
+    apiFrame.innerHTML = `
+        <div class="userBx">
+            <p class="username">ToolBox</p>
+        </div>
+        <div class="menuToggle" onclick='toggleapidemo(event)'></div>
+        <ul class="menu">
+            <li>
+                <a>Add</a>
+                <button onclick='addmarker(event)'>Add marker</button>
+                <button onclick='addpoly(event)'>Add poly</button>
+            </li>
+            <li>
+                <a>Remove</a>
+                <button onclick='removemarker(event)'>Remove marker</button>
+                <button onclick='removepoly(event)'>Remove poly</button>
+                <button onclick='removeall(event)'>Remove all</button>
+            </li>
+            <li>
+                <a>Draw</a>
+                <button onclick='drawpoint(event)'>Draw point</button>
+                <button onclick='drawline(event)'>Draw line</button>
+                <button onclick='drawpoly(event)'>Draw poly</button>
+                <button onclick='drawcircle(event)'>Draw circle</button>
+                <button onclick='drawbox(event)'>Draw box</button>
+            </li>
+            <li>
+                <a>Settings</a>
+                <button onclick='pantohb(event)'>Pan to HB</button>
+                <button onclick='zoomtohb(event)'>Zoom to HB</button>
+            </li>
+        </ul>
+        </div>
+        </div>`;
     document.body.appendChild(apiFrame);
 };

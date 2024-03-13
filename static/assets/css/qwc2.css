@@ -38,3 +38,121 @@ div#splash {
 .appmenu-button-container{
     cursor : pointer;
 }
+.navigation {
+    position: fixed;
+    top: 4em;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-color: var(--panel-bg-color);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 0.5rem 0.2rem rgba(136, 136, 136, 0.5);
+    display: flex;
+    justify-content: space-between;
+    transition: height 0.5s, width 0.5s;
+    transition-delay: 0s, 0.75s;
+    overflow: hidden;
+}
+.navigation.active {
+    width: 200px;
+    height: 75svh;
+    transition: width 0.5s, height 0.5s;
+    transition-delay: 0s, 0.75s;
+    overflow-y: scroll;
+}
+.navigation .userBx {
+    position: relative;
+    width: 0;
+    height: 60px;
+    background: (136, 136, 136, 0.8);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.navigation.active .userBx {
+    width: calc(100% - 60px);
+    transition-delay: 0s;
+    padding-left: 1rem;
+}
+.navigation .userBx .username {
+    white-space: nowrap;
+    color: #555;
+    font-size: 1.1em;
+}
+.menu {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 60px);
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.menu li {
+    list-style: none;
+    button{
+        background-color: inherit;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        outline: none;
+        cursor: pointer;
+        width: 100%;
+        padding: 0.5rem;
+        transition: 0.3s;
+        margin-bottom: 0.2rem;
+        &:hover{
+            background-color: var(--app-menu-bg-color-hover);
+            cursor: pointer;
+        }
+    }
+}
+.menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    font-size: 1em;
+    text-decoration: none;
+    color: #555;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    &:hover{
+        cursor: default;
+    }
+}
+.navigation .menuToggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: var(--panel-bg-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation .menuToggle::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background: #555;
+    transform: translateY(-10px);
+    box-shadow: 0 10px #555;
+    transition: 0.5s;
+}
+.navigation .menuToggle::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background: #555;
+    transform: translateY(10px);
+    transition: 0.5s;
+}
+.navigation.active .menuToggle::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 #555;
+}
+.navigation.active .menuToggle::after {
+    transform: translateY(0px) rotate(-45deg);
+}
+
