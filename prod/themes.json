@@ -59,19 +59,6 @@
             12051177
           ]
         },
-        "scales": [
-          50000000,
-          25000000,
-          12500000,
-          6250000,
-          3125000,
-          1562500,
-          781250,
-          390625,
-          195312.5,
-          97656.25,
-          48828.125
-        ],
         "sublayers": [
           {
             "name": "airports",
@@ -195,9 +182,210 @@
         },
         "editConfig": null,
         "thumbnail": "img/genmapthumbs/world.qgs.png"
+      },
+      {
+        "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs",
+        "id": "sorkhrood.qgs",
+        "name": "sorkhrood",
+        "title": "QGIS Sakhteman Map",
+        "description": "",
+        "attribution": {
+          "Title": "",
+          "OnlineResource": ""
+        },
+        "abstract": "",
+        "keywords": "",
+        "onlineResource": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Fsakhteman%2Fsorkhrood.qgs",
+        "contact": {
+          "person": "",
+          "organization": "",
+          "position": "",
+          "phone": "",
+          "email": ""
+        },
+        "availableFormats": [
+          "image/jpeg",
+          "image/png",
+          "image/png; mode=16bit",
+          "image/png; mode=8bit",
+          "image/png; mode=1bit",
+          "application/dxf",
+          "application/pdf"
+        ],
+        "version": "1.3.0",
+        "infoFormats": [
+          "text/plain",
+          "text/html",
+          "text/xml",
+          "application/vnd.ogc.gml",
+          "application/vnd.ogc.gml/3.1.1",
+          "application/json",
+          "application/geo+json"
+        ],
+        "bbox": {
+          "crs": "EPSG:4326",
+          "bounds": [
+            4.339705,
+            34.275209,
+            4.431842,
+            34.348841
+          ]
+        },
+        "initialBbox": {
+          "crs": "EPSG:3857",
+          "bounds": [
+            5660183.766666667,
+            4406906.2,
+            5665018.233333333,
+            4410817.8
+          ]
+        },
+        "sublayers": [
+          {
+            "name": "sakhteman2_e7e5d0c3_20fd_4009_8349_7b5650868efd",
+            "title": "sakhtemanA",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Code_nosaz",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                50.850612,
+                36.766455,
+                50.885406,
+                36.79895
+              ]
+            },
+            "dimensions": []
+          },
+          {
+            "name": "GDB_Items_6271df6a_1fbf_49cc_8c1d_dae682f8c22c",
+            "title": "GDB_Items",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Name",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                4.339705,
+                34.275209,
+                4.431842,
+                34.348841
+              ]
+            },
+            "dimensions": []
+          },
+          {
+            "name": "arse_625e05a8_3836_4a7d_afd8_97f49116eda0",
+            "title": "arse",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Name_malek",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                50.850612,
+                36.766455,
+                50.885406,
+                36.79895
+              ]
+            },
+            "dimensions": []
+          },
+          {
+            "name": "sakhteman_6804c34e_dd5e_46c3_a4b8_9e1d5c2bc76e",
+            "title": "sakhteman",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Code_nosazi",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                50.850612,
+                36.766455,
+                50.885406,
+                36.79895
+              ]
+            },
+            "dimensions": []
+          },
+          {
+            "name": "sakhteman2_192dac42_8c18_4170_91cb_a004d876ef28",
+            "title": "sakhtemanB",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Code_nosaz",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                50.850612,
+                36.766455,
+                50.885406,
+                36.79895
+              ]
+            },
+            "dimensions": []
+          },
+          {
+            "name": "sakhteman2_9edbb8b3_a096_4c5e_b719_09b2a437afe7",
+            "title": "sakhtemanC",
+            "geometryType": "MultiPolygon",
+            "visibility": true,
+            "queryable": true,
+            "displayField": "Code_nosaz",
+            "opacity": 255,
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                50.850612,
+                36.766455,
+                50.885406,
+                36.79895
+              ]
+            },
+            "dimensions": []
+          }
+        ],
+        "expanded": true,
+        "externalLayers": [],
+        "backgroundLayers": [
+          {
+            "name": "mapnik"
+          }
+        ],
+        "searchProviders": [
+          "coordinates"
+        ],
+        "mapCrs": "EPSG:3857",
+        "drawingOrder": [
+          "sakhteman2_9edbb8b3_a096_4c5e_b719_09b2a437afe7",
+          "sakhteman2_192dac42_8c18_4170_91cb_a004d876ef28",
+          "sakhteman_6804c34e_dd5e_46c3_a4b8_9e1d5c2bc76e",
+          "arse_625e05a8_3836_4a7d_afd8_97f49116eda0",
+          "GDB_Items_6271df6a_1fbf_49cc_8c1d_dae682f8c22c",
+          "sakhteman2_e7e5d0c3_20fd_4009_8349_7b5650868efd"
+        ],
+        "legendUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Fsakhteman%2Fsorkhrood.qgs&?",
+        "featureInfoUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Fsakhteman%2Fsorkhrood.qgs&?",
+        "printUrl": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=%2Fhome%2Fqgis%2Fprojects%2Fsakhteman%2Fsorkhrood.qgs&?",
+        "config": {
+          "preserveExtentOnThemeSwitch": false
+        },
+        "editConfig": null,
+        "thumbnail": "img/genmapthumbs/sorkhrood.qgs.png"
       }
     ],
-    "defaultTheme": "world.qgs",
+    "defaultTheme": "sorkhrood.qgs",
     "defaultMapCrs": "EPSG:3857",
     "defaultScales": [
       4000000,

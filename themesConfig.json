@@ -5,9 +5,24 @@
                 "title": "QGIS tutorial Map",
                 "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/tutorial/world.qgs",
                 "default": true,
-                "scales": [50000000, 25000000.0, 12500000.0, 6250000.0, 3125000.0, 1562500.0,
-                           781250.0, 390625.0, 195312.5, 97656.25, 48828.125],
                 "extent": [-9546172, -884033, 12504796, 12051177],
+                "backgroundLayers": [
+                  {
+                    "name": "mapnik"
+                  }
+                ],
+                "mapCrs": "EPSG:3857",
+                "searchProviders": ["coordinates"],
+                "config": {
+                  "preserveExtentOnThemeSwitch": false
+                }
+            },
+            {
+                "title": "QGIS Sakhteman Map",
+                "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs",
+                "default": true,
+                "type":"WFS",
+                "extent": [5660183.766666667,4406906.2,5665018.233333333,4410817.8],
                 "backgroundLayers": [
                   {
                     "name": "mapnik"
