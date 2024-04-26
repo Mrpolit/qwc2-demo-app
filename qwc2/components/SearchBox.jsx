@@ -659,7 +659,50 @@ class SearchBox extends React.Component {
                 this.addSearchResults(searchSession, key, {results: results, tot_result_count: count});
             }, axios);
         });
+
+        //feature search
+        let resultId = 0;
+        let themelayers = this.props.theme.sublayers;
+        themelayers.forEach(result => {
+            this.featurelist(resultId,searchText,searchParams,searchSession,availableProviders);
+            resultId++;
+        });
+        
     };
+    featurelist(resultId,searchText,searchParams,searchSession,availableProviders) {
+        let Arraylist = JSON.parse(localStorage.getItem(`requestResult${resultId}`));
+        let items = [];
+        let counter = 0;
+        Arraylist.forEach(item => {
+            if(item.text.includes(searchText)&& counter<5){
+                items.push({
+                    id: this.props.theme.id,
+                    text: item.text,
+                    layer: ""
+                });
+                counter++;
+            };
+        });
+        if(items.length >= 1){
+            const Key = "themeFeatures";
+            let flag = 0;
+            Object.entries(availableProviders).forEach(([Key,entry]) => {
+                if(flag === 0){
+                    entry.onSearch(searchText, {...searchParams}, () => {
+                        const Results = [{
+                            id: "themeFeatures",
+                            titlemsgid:`search.themeFeatures`,
+                            periority: 1,
+                            items: items
+                        }];
+                        const count = items.length > -1 ? items.length : 0;
+                        this.addSearchResults(searchSession, Key, {results: Results, tot_result_count: count});
+                    }, axios);
+                    flag++;
+                }
+            })
+        }
+    }
     filterFulltextResults = (data) => {
         if (!this.state.filterGeometry) {
             return data;

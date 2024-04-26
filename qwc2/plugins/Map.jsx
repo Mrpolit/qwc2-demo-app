@@ -122,6 +122,7 @@ class MapPlugin extends React.Component {
                             });
                         }
                     }
+
                 } else {
                     renderLayers.push(layer);
                 }
@@ -197,7 +198,96 @@ class MapPlugin extends React.Component {
                 }
             }
             this.setState({renderLayers: renderLayers, swipeLayer: swipeLayer});
+            this.requestData();
         }
+    }
+    requestData = () => {
+        localStorage.removeItem("requestResult");
+        let resultId = 0;
+        let themelayers = this.props.theme.sublayers;
+        themelayers.forEach(result => {
+            const params = {
+                url: this.props.theme.url,
+                SERVICE: 'WMS',
+                id: this.props.theme.id,
+                VERSION: this.props.theme.version,
+                REQUEST: 'GetFeatureInfo',
+                CRS: this.props.theme.mapCrs,
+                LAYERS: result.name,
+                height: '101',
+                width: '101',
+                WITH_MAPTIP: false,
+                WITH_GEOMETRY: true,
+                feature_count: 10000,
+                info_format: 'text/xml'
+            };
+            const URL=`${params.url}&?=&service=${params.SERVICE}&version=${params.VERSION}&request=${params.REQUEST}&id=${params.id}&layers=${params.LAYERS}&query_layers=${params.LAYERS}&srs=${params.CRS}&crs=${params.CRS}&info_format=text/xml&with_geometry=true&with_maptip=false&x=51&y=51&i=51&j=51&styles=,,,&height=${params.height}&width=${params.width}&feature_count=${params.feature_count}&FI_POINT_TOLERANCE=16&FI_LINE_TOLERANCE=8&FI_POLYGON_TOLERANCE=4&region_feature_count=${params.feature_count}`; 
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', URL);
+            xhr.send();
+            xhr.onload = () => {
+                if (xhr.status != 200) {
+                    console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                }else {
+                    let response = xhr.responseText;
+                    let Arraylist = [];
+                    let locator = "";
+                    let indexOne = "";
+                    let indexTwo = "";
+                    let trimer = "";
+                    for (let i = 1; i < 10000; i++) {
+                        locator = `<Feature id="${i}">`;
+                        locator = response.indexOf(locator);
+                        if(locator === -1){
+                            i = 10000;
+                        }else{
+                            indexOne = response.indexOf(`name="Code_nosaz`,locator);
+                            indexTwo = response.indexOf(`value="`,indexOne);
+                            if(indexTwo > indexOne){
+                                indexTwo = response.indexOf(`"/>`,indexOne);
+                                trimer = response.slice(indexOne,indexTwo);
+                                trimer = trimer.replace(/ /g," : ");
+                                trimer = trimer.replace(/name="/g,"");
+                                trimer = trimer.replace(/value="/g,"");
+                                trimer = trimer.replace(/"/g,"");
+                            }else{
+                                trimer = response.slice(indexOne -20,indexOne);
+                                trimer = trimer.replace(/"/g,"");
+                                trimer = trimer.replace(/=/g,"");
+                                trimer = trimer.replace(/e/g,"");
+                                trimer = `Code_nosaz : ${trimer}`;
+                            }
+                            Arraylist.push({text : trimer});
+                            indexOne = response.indexOf(`name="Parvande_No`,locator);
+                            indexTwo = response.indexOf(`value="`,indexOne);
+                            if(indexTwo > indexOne){
+                                indexTwo = response.indexOf(`"/>`,indexOne);
+                                trimer = response.slice(indexOne,indexTwo);
+                                trimer = trimer.replace(/ /g," : ");
+                                trimer = trimer.replace(/name="/g,"");
+                                trimer = trimer.replace(/value="/g,"");
+                                trimer = trimer.replace(/"/g,"");
+                            }else{
+                                trimer = response.slice(indexOne -10,indexOne);
+                                trimer = trimer.replace(/"/g,"");
+                                trimer = trimer.replace(/=/g,"");
+                                trimer = trimer.replace(/e/g,"");
+                                trimer = trimer.replace(/u/g,"");
+                                trimer = trimer.replace(/l/g,"");
+                                trimer = `Parvande_No : ${trimer}`;
+                            }
+                            Arraylist.push({text : trimer});
+                        };
+                    };
+                    console.log(Arraylist);
+                    localStorage.setItem(`requestResult${resultId}`,JSON.stringify(Arraylist));
+                    resultId++;
+                }
+            }
+            xhr.onerror = () => {
+                console.log("Request failed");
+            };
+        });
     }
     renderLayers = () => {
         let zIndex = 0;

@@ -2,23 +2,7 @@
     "themes":{
         "items":[
             {
-                "title": "QGIS tutorial Map",
-                "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/tutorial/world.qgs",
-                "default": true,
-                "extent": [-9546172, -884033, 12504796, 12051177],
-                "backgroundLayers": [
-                  {
-                    "name": "mapnik"
-                  }
-                ],
-                "mapCrs": "EPSG:3857",
-                "searchProviders": ["coordinates"],
-                "config": {
-                  "preserveExtentOnThemeSwitch": false
-                }
-            },
-            {
-                "title": "QGIS Sakhteman Map",
+                "title": "خرم آباد تنکابن",
                 "url": "http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs",
                 "default": true,
                 "type":"WFS",

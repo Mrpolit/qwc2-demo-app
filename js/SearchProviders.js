@@ -10,6 +10,7 @@
 import yaml from 'js-yaml';
 import CoordinatesUtils from '../qwc2/utils/CoordinatesUtils';
 import IdentifyUtils from '../qwc2/utils/IdentifyUtils';
+import { height, width } from '@mui/system';
 
 function coordinatesSearch(text, searchParams, callback) {
     const displaycrs = searchParams.displaycrs || "EPSG:4326";
@@ -205,17 +206,21 @@ class QgisSearch {
         const filter = {...searchParams.cfgParams.expression};
         const values = {TEXT: text};
         const params = {
+            MAP: searchParams.theme.map,
             SERVICE: 'WMS',
+            id: searchParams.theme.id,
             VERSION: searchParams.theme.version,
             REQUEST: 'GetFeatureInfo',
             CRS: searchParams.theme.mapCrs,
-            WIDTH: 100,
-            HEIGHT: 100,
-            LAYERS: [],
-            FILTER: [],
+            LAYERS: searchParams.theme.layer,
+            QUERY_LAYERS: searchParams.theme.layer,
+            height: '101',
+            width: '101',
+            SRS: searchParams.theme.mapCrs,
             WITH_MAPTIP: false,
             WITH_GEOMETRY: true,
             feature_count: searchParams.cfgParams.featureCount || 100,
+
             info_format: 'text/xml'
         };
         Object.keys(filter).forEach(layer => {
