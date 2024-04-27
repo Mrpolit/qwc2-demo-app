@@ -198,13 +198,16 @@ class MapPlugin extends React.Component {
                 }
             }
             this.setState({renderLayers: renderLayers, swipeLayer: swipeLayer});
-            this.requestData();
+            if(localStorage.getItem("layersName")!==JSON.stringify(this.props.theme.sublayers)){
+                this.requestData();
+            }
         }
     }
     requestData = () => {
         localStorage.removeItem("requestResult");
         let resultId = 0;
         let themelayers = this.props.theme.sublayers;
+        localStorage.setItem("layersName",JSON.stringify(themelayers));
         themelayers.forEach(result => {
             const params = {
                 url: this.props.theme.url,
@@ -257,7 +260,10 @@ class MapPlugin extends React.Component {
                                 trimer = trimer.replace(/e/g,"");
                                 trimer = `Code_nosaz : ${trimer}`;
                             }
-                            Arraylist.push({text : trimer});
+                            Arraylist.push({
+                                id: i,
+                                text : trimer
+                            });
                             indexOne = response.indexOf(`name="Parvande_No`,locator);
                             indexTwo = response.indexOf(`value="`,indexOne);
                             if(indexTwo > indexOne){
@@ -276,10 +282,12 @@ class MapPlugin extends React.Component {
                                 trimer = trimer.replace(/l/g,"");
                                 trimer = `Parvande_No : ${trimer}`;
                             }
-                            Arraylist.push({text : trimer});
+                            Arraylist.push({
+                                id: i,
+                                text : trimer
+                            });
                         };
                     };
-                    console.log(Arraylist);
                     localStorage.setItem(`requestResult${resultId}`,JSON.stringify(Arraylist));
                     resultId++;
                 }

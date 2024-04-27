@@ -664,31 +664,57 @@ class SearchBox extends React.Component {
         let resultId = 0;
         let themelayers = this.props.theme.sublayers;
         themelayers.forEach(result => {
-            this.featurelist(resultId,searchText,searchParams,searchSession,availableProviders);
+            this.featurelist(resultId,searchText,searchSession,availableProviders);
             resultId++;
         });
+
+
         
     };
-    featurelist(resultId,searchText,searchParams,searchSession,availableProviders) {
+    featurelist(resultId,searchText,searchSession,availableProviders) {
         let Arraylist = JSON.parse(localStorage.getItem(`requestResult${resultId}`));
         let items = [];
+        // let url = "";
         let counter = 0;
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs&REQUEST=GetFeature&service=WFS&OUTPUTFORMAT=geojson&FEATUREID=arse.3774');
+        xhr.send();
+        xhr.onload = () => {
+            let bbox = JSON.parse(xhr.response).bbox
+            let zoom = 0;
+            const maxZoom = MapUtils.computeZoom(this.props.map.scales, this.props.theme.minSearchScaleDenom || this.props.searchOptions.minScaleDenom);
+            zoom = Math.max(0, MapUtils.getZoomForExtent(bbox, this.props.map.resolutions, this.props.map.size, 0, maxZoom + 1) - 1);
+            const x = 0.5 * (bbox[0] + bbox[2]);
+            const y = 0.5 * (bbox[1] + bbox[3]);
+            this.props.zoomToPoint([x,y], zoom / 2 , "32639");
+        };
+        xhr.onerror = () => {
+            console.log("Request failed");
+        };
         Arraylist.forEach(item => {
-            if(item.text.includes(searchText)&& counter<5){
+            if( item.text.includes(searchText) && counter<5){
                 items.push({
                     id: this.props.theme.id,
                     text: item.text,
-                    layer: ""
+                    layer: this.props.layers[0]
                 });
                 counter++;
             };
         });
         if(items.length >= 1){
+            const searchParams = {
+                mapcrs: this.props.map.projection,
+                displaycrs: this.props.displaycrs,
+                lang: LocaleUtils.lang(),
+                theme: this.props.theme,
+                filterPoly: this.state.filterGeometry?.coordinates?.[0],
+                filterBBox: this.state.filterGeometry ? VectorLayerUtils.computeFeatureBBox(this.state.filterGeometry) : null
+            };
             const Key = "themeFeatures";
             let flag = 0;
             Object.entries(availableProviders).forEach(([Key,entry]) => {
                 if(flag === 0){
-                    entry.onSearch(searchText, {...searchParams}, () => {
+                    entry.onSearch(searchText, {...searchParams , cfgParams: entry.params}, () => {
                         const Results = [{
                             id: "themeFeatures",
                             titlemsgid:`search.themeFeatures`,
