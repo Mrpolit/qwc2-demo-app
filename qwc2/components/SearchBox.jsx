@@ -44,6 +44,7 @@ import ComboBox from './widgets/ComboBox';
 import NumberInput from './widgets/NumberInput';
 
 import './style/SearchBox.css';
+import theme from '../reducers/theme';
 
 class SearchBox extends React.Component {
     static propTypes = {
@@ -338,11 +339,11 @@ class SearchBox extends React.Component {
                                 <div className="searchbox-results-section-body">
                                     {group.items.map((entry, idx) => (
                                         <div className="searchbox-result" key={"c" + idx} onClick={() => {this.selectProviderResult(group, entry, provider); this.blur(); }} onMouseDown={MiscUtils.killEvent}>
-                                            {entry.thumbnail ? (<img className="searchbox-result-thumbnail" src={entry.thumbnail} />) : null}
-                                            {entry.theme ? (<Icon className="searchbox-result-openicon" icon="open" />) : null}
-                                            <span className="searchbox-result-label" dangerouslySetInnerHTML={{__html: entry.text.replace(/<br\s*\/>/ig, ' ')}} title={entry.label ?? entry.text} />
-                                            {entry.externalLink ? <Icon icon="info-sign" onClick={ev => { MiscUtils.killEvent(ev); this.openUrl(entry.externalLink, entry.target, entry.label ?? entry.text); } } /> : null}
-                                            {entry.theme && addThemes ? (<Icon icon="plus" onClick={(ev) => { MiscUtils.killEvent(ev); this.addThemeLayers(entry.layer); this.searchBox.blur(); }} title={addTitle}/>) : null}
+                                            {/* {entry.thumbnail ? (<img className="searchbox-result-thumbnail" src={entry.thumbnail} />) : null} */}
+                                            {/* {entry.theme ? (<Icon className="searchbox-result-openicon" icon="open" />) : null} */}
+                                            <span className="searchbox-result-label" dangerouslySetInnerHTML={{__html: entry.text.replace(/<br\s*\/>/ig, ' ')}} title={entry.label ?? entry.text} onClick={ev => { MiscUtils.killEvent(ev); this.zoomToCoordinate(entry.label ?? entry.text); } } />
+                                            {/* {entry.externalLink ? <Icon icon="info-sign" onClick={ev => { MiscUtils.killEvent(ev); this.zoomToCoordinate(entry.label ?? entry.text); } } /> : null} */}
+                                            {/* {entry.theme && addThemes ? (<Icon icon="plus" onClick={(ev) => { MiscUtils.killEvent(ev); this.addThemeLayers(entry.layer); this.searchBox.blur(); }} title={addTitle}/>) : null} */}
                                         </div>
                                     ))}
                                 </div>
@@ -663,44 +664,67 @@ class SearchBox extends React.Component {
         //feature search
         let resultId = 0;
         let themelayers = this.props.theme.sublayers;
-        themelayers.forEach(result => {
-            this.featurelist(resultId,searchText,searchSession,availableProviders);
+        themelayers.forEach(layer => {
+            this.featurelist(resultId,searchText,availableProviders,searchSession,layer);
             resultId++;
         });
 
 
         
     };
-    featurelist(resultId,searchText,searchSession,availableProviders) {
+    zoomToCoordinate(selectedName){
+        let resultId = 0;
+        let themelayers = this.props.theme.sublayers;
+        themelayers.forEach(Layer => {
+            let Arraylist = JSON.parse(localStorage.getItem(`requestResult${resultId}`));
+            let xhr = new XMLHttpRequest();
+            Arraylist.forEach((item) => {
+                if(item.text === selectedName){
+                    let URL = `http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs&SRSNAME=${this.props.map.projection}&REQUEST=GetFeature&service=WFS&OUTPUTFORMAT=geojson&FEATUREID=${Layer.title}.${item.id}`;
+                    xhr.open('GET', URL);
+                    xhr.send();
+                    xhr.onload =() => {
+                        let bbox = JSON.parse(xhr.response).features[0].bbox;
+                        let crs = this.props.map.projection;
+                        let zoom = 0;
+                        const maxZoom = MapUtils.computeZoom(this.props.map.scales, this.props.theme.minSearchScaleDenom || this.props.searchOptions.minScaleDenom);
+                        zoom = Math.max(0, MapUtils.getZoomForExtent(bbox, this.props.map.resolutions, this.props.map.size, 0, maxZoom + 1) - 1);
+                        const x = 0.5 * (bbox[0] + bbox[2]);
+                        const y = 0.5 * (bbox[1] + bbox[3]);
+                        this.props.zoomToPoint([x, y], zoom, crs);
+                    }
+                    xhr.onerror = () => {
+                        console.log("Request failed");
+                    }
+                }
+            })
+            resultId++;
+        })
+    }
+    featurelist(resultId,searchText,availableProviders,searchSession,Layer) {
         let Arraylist = JSON.parse(localStorage.getItem(`requestResult${resultId}`));
         let items = [];
-        // let url = "";
         let counter = 0;
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://45.156.184.164:3000/cgi-bin/qgis_mapserv.fcgi?MAP=/home/qgis/projects/sakhteman/sorkhrood.qgs&REQUEST=GetFeature&service=WFS&OUTPUTFORMAT=geojson&FEATUREID=arse.3774');
-        xhr.send();
-        xhr.onload = () => {
-            let bbox = JSON.parse(xhr.response).bbox
-            let zoom = 0;
-            const maxZoom = MapUtils.computeZoom(this.props.map.scales, this.props.theme.minSearchScaleDenom || this.props.searchOptions.minScaleDenom);
-            zoom = Math.max(0, MapUtils.getZoomForExtent(bbox, this.props.map.resolutions, this.props.map.size, 0, maxZoom + 1) - 1);
-            const x = 0.5 * (bbox[0] + bbox[2]);
-            const y = 0.5 * (bbox[1] + bbox[3]);
-            this.props.zoomToPoint([x,y], zoom / 2 , "32639");
-        };
-        xhr.onerror = () => {
-            console.log("Request failed");
-        };
-        Arraylist.forEach(item => {
-            if( item.text.includes(searchText) && counter<5){
+        Arraylist.forEach((item) => {
+            if(item.text.includes(searchText) && counter<5){
                 items.push({
-                    id: this.props.theme.id,
+                    id: `sorkhrood.qgs:${Layer.name}`,
                     text: item.text,
-                    layer: this.props.layers[0]
-                });
+                    layer: Layer,
+                    type: 3,
+                    coordinate:{
+                        url: this.props.theme.url,
+                        id: "sorkhrood.qgs",
+                        name: "sorkhrood",
+                        bbox:{
+                            bounds: "",
+                            crs: `${this.props.map.projection}`
+                        }
+                    }
+                })
                 counter++;
-            };
-        });
+            }
+        })
         if(items.length >= 1){
             const searchParams = {
                 mapcrs: this.props.map.projection,
@@ -709,22 +733,19 @@ class SearchBox extends React.Component {
                 theme: this.props.theme,
                 filterPoly: this.state.filterGeometry?.coordinates?.[0],
                 filterBBox: this.state.filterGeometry ? VectorLayerUtils.computeFeatureBBox(this.state.filterGeometry) : null
-            };
-            const Key = "themeFeatures";
-            let flag = 0;
-            Object.entries(availableProviders).forEach(([Key,entry]) => {
-                if(flag === 0){
+            }
+            Object.entries(availableProviders).forEach(([key,entry]) => {
+                if(key === "coordinates"){
                     entry.onSearch(searchText, {...searchParams , cfgParams: entry.params}, () => {
                         const Results = [{
-                            id: "themeFeatures",
-                            titlemsgid:`search.themeFeatures`,
+                            id: key,
+                            titlemsgid: entry.labelmsgid,
                             periority: 1,
                             items: items
                         }];
                         const count = items.length > -1 ? items.length : 0;
-                        this.addSearchResults(searchSession, Key, {results: Results, tot_result_count: count});
+                        this.addSearchResults(searchSession, key, {results: Results, tot_result_count: count});
                     }, axios);
-                    flag++;
                 }
             })
         }
